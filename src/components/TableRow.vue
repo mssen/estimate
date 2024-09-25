@@ -19,17 +19,17 @@ const handleToggleExclude = () => toggleExclude(item.id)
 </script>
 
 <template>
-  <tr>
-    <td>
+  <tr class="border-b hover:bg-gray-100">
+    <td class="px-4 py-2">
       {{ item.name }}
     </td>
-    <td>
+    <td class="px-4 py-2">
       {{ formatNumber.format(item.cost) }}
     </td>
-    <td class="flex">
+    <td class="flex px-4 py-2">
       <button
         @click="handleRemove"
-        class="ml-3 mr-1 rounded border-b-4 border-red-600 bg-red-100 px-1 font-medium text-red-900 hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 active:border-y-2 active:border-t-transparent"
+        class="mr-3 rounded border-b-4 border-red-600 bg-red-100 px-1 font-medium text-red-900 hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 active:border-y-2 active:border-t-transparent"
       >
         Remove
       </button>

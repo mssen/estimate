@@ -80,27 +80,29 @@ const total = computed(() =>
       </button>
     </form>
 
-    <table class="my-5">
-      <thead>
-        <th>Name</th>
-        <th>Cost</th>
-        <th>Actions</th>
-      </thead>
-      <tbody>
-        <TableRow
-          v-for="item in items"
-          :key="item.id"
-          :item="item"
-          :excluded="isExcluded(item.id)"
-          :on-remove="onRemove"
-          :toggle-exclude="toggleExclude"
-        />
-      </tbody>
-    </table>
+    <div v-if="items.length > 0">
+      <table class="my-5 w-full border text-left md:w-4/5 lg:w-3/5">
+        <thead class="border-b bg-gray-200 text-sm uppercase">
+          <th class="px-4 py-2">Name</th>
+          <th class="px-4 py-2">Cost</th>
+          <th class="px-4 py-2">Actions</th>
+        </thead>
+        <tbody>
+          <TableRow
+            v-for="item in items"
+            :key="item.id"
+            :item="item"
+            :excluded="isExcluded(item.id)"
+            :on-remove="onRemove"
+            :toggle-exclude="toggleExclude"
+          />
+        </tbody>
+      </table>
 
-    <div class="text-xl">
-      <span class="font-semibold">Total </span>
-      <span>{{ formatNumber.format(total) }}</span>
+      <div class="text-xl">
+        <span class="font-semibold">Total </span>
+        <span>{{ formatNumber.format(total) }}</span>
+      </div>
     </div>
   </main>
 </template>
